@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet author="Ramachandran.K (Generated)" id="100405130013-1">
+        <createSequence sequenceName="user_id_seq"/>
+    </changeSet>
+    <changeSet author="Ramachandran.K (Generated)" id="100405130013-2">
+        <createTable tableName="user">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="user_pkey"/>
+            </column>
+            <column name="firstname" type="VARCHAR(2048)"/>
+            <column name="middlename" type="VARCHAR(2048)"/>
+            <column name="lastname" type="VARCHAR(2048)"/>
+            <column name="email" type="VARCHAR(2048)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone" type="VARCHAR(2048)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="imageurl" type="VARCHAR(2048)"/>
+            <column defaultValueBoolean="0" name="isdeleted" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="0" name="isarchived" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="1" name="isActive" type="BIT(1)">
+            </column>
+            <column  name="userName" type="VARCHAR(2048)">
+            </column>
+            <column  name="password" type="VARCHAR(2048)">
+            </column>
+            <column name="createdat" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+	    <column  name="emailCode" type="VARCHAR(2048)">
+            </column>
+            <column name="modifiedat" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="externalid" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+	    <column defaultValueBoolean="0" name="phoneverified" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="0" name="emailVerified" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Ramachandran.K (Generated)" id="100405130013-3">
+        <createIndex indexName="unique_externalid" tableName="user" unique="true">
+            <column name="externalid"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

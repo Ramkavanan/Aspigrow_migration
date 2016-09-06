@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>aspigrow</groupId>
+    <artifactId>db</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <liquibase-core.version>3.4.2</liquibase-core.version>
+        <mysql-version>5.1.22</mysql-version>
+        <dbpassword>root</dbpassword>
+        <dbusername>root</dbusername>
+        <dbhost>localhost</dbhost>
+        <dbport>3306</dbport>
+        <dbname>aspigrow</dbname>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <!-- Replace with the version of the MySQL driver you want to use -->
+            <version>${mysql-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>${liquibase-core.version}</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>${liquibase-core.version}</version>
+                <configuration>
+                    <propertyFile>src/main/resources/liquibase.properties</propertyFile>
+                    <driver>com.mysql.jdbc.Driver</driver>
+                    <url>jdbc:mysql://${dbhost}:${dbport}/${dbname}?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf8</url>
+                    <username>${dbusername}</username>
+                    <password>${dbpassword}</password>
+                    <changeLogFile>src/main/resources/liquibase/db.changelog-master.xml</changeLogFile>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
