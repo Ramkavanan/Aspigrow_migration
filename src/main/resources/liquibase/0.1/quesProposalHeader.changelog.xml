@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet author="Ramachandran.K (Generated)" id="100405132355-1">
+        <createSequence sequenceName="quesProposalHeader_id_seq"/>
+    </changeSet>
+    <changeSet author="Ramachandran.K (Generated)" id="100405132355-2">
+        <createTable tableName="quesProposalHeader">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="quesProposalHeader_pkey"/>
+            </column>
+            
+            <column defaultValueBoolean="0" name="isDeleted" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="0" name="isArchived" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="createdat" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modifiedat" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="externalid" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+			<column name="name" type="VARCHAR(2048)"/>
+			<column name="status" type="VARCHAR(2048)"/>
+			<column name="agreement" type="BIGINT"/>
+			<column name="contact" type="BIGINT"/>
+			<column name="opportunity" type="BIGINT"/>
+
+        </createTable>
+    </changeSet>
+    <changeSet author="Ramachandran.K (Generated)" id="100405132355-3">
+        <createIndex indexName="unique_externalid" tableName="quesProposalHeader" unique="true">
+            <column name="externalid"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

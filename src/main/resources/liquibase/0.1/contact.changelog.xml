@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet author="Ramachandran.K (Generated)" id="1004051301245-1">
+        <createSequence sequenceName="contact_id_seq"/>
+    </changeSet>
+    <changeSet author="Ramachandran.K (Generated)" id="1004051301245-2">
+        <createTable tableName="contact">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="contact_pkey"/>
+            </column>
+            
+            <column defaultValueBoolean="0" name="isDeleted" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="0" name="isArchived" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="createdat" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modifiedat" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="externalid" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+	
+			<column name="firstName" type="VARCHAR(2048)"/>
+			<column name="lastName" type="VARCHAR(2048)"/>
+			<column name="Email" type="VARCHAR(2048)"/>
+			<column name="Phone" type="VARCHAR(2048)"/>
+			<column name="contact" type="BIGINT"/>
+
+        </createTable>
+    </changeSet>
+    <changeSet author="Ramachandran.K (Generated)" id="1004051301245-3">
+        <createIndex indexName="unique_externalid" tableName="contact" unique="true">
+            <column name="externalid"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

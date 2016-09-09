@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet author="Ramachandran.K (Generated)" id="100405130123-1">
+        <createSequence sequenceName="opportunity_id_seq"/>
+    </changeSet>
+    <changeSet author="Ramachandran.K (Generated)" id="100405130123-2">
+        <createTable tableName="opportunity">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="opportunity_pkey"/>
+            </column>
+            
+            <column defaultValueBoolean="0" name="isDeleted" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="0" name="isArchived" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="createdat" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modifiedat" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="externalid" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+
+			<column name="name" type="VARCHAR(2048)"/>
+			<column name="account" type="BIGINT"/>
+
+        </createTable>
+    </changeSet>
+    <changeSet author="Ramachandran.K (Generated)" id="100405130123-3">
+        <createIndex indexName="unique_externalid" tableName="opportunity" unique="true">
+            <column name="externalid"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

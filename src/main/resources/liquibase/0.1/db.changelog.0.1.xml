@@ -7,4 +7,10 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
 
     <include file="src/main/resources/liquibase/0.1/address.changelog.xml"/>
+    <include file="src/main/resources/liquibase/0.1/account.changelog.xml"/>
+    <include file="src/main/resources/liquibase/0.1/agreement.changelog.xml"/>
+    <include file="src/main/resources/liquibase/0.1/contact.changelog.xml"/>
+    <include file="src/main/resources/liquibase/0.1/opportunity.changelog.xml"/>
+    <include file="src/main/resources/liquibase/0.1/quesProposalHeader.changelog.xml"/>
+    <include file="src/main/resources/liquibase/0.1/quesProposalLineItem.changelog.xml"/>
 </databaseChangeLog>
