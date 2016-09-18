@@ -31,7 +31,13 @@
             </column>
 
 			<column name="name" type="VARCHAR(2048)"/>
-			<column name="account" type="BIGINT"/>
+<column name="quesId" type="VARCHAR(2048)"/>
+<column name="oppId" type="VARCHAR(2048)"/>
+<column name="account" type="BIGINT"/>
+<column name="opportunity" type="BIGINT"/>
+<column name="quesProcessHeader" type="BIGINT"/>
+
+
 
         </createTable>
     </changeSet>

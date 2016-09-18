@@ -33,7 +33,8 @@
 			<column name="name" type="VARCHAR(2048)"/>
 			<column name="accountNumber" type="VARCHAR(2048)"/>
 			<column name="site" type="VARCHAR(2048)"/>
-
+		<column name="salesforceId" type="VARCHAR(128)"/>
+<column name="opportunity" type="BIGINT"/>
 
         </createTable>
     </changeSet>

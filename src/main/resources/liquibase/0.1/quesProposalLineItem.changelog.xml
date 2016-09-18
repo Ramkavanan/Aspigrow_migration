@@ -36,7 +36,10 @@
 			<column name="pickListOpts" type="VARCHAR(2048)"/>
 			<column name="question" type="VARCHAR(2048)"/>
 			<column name="type" type="VARCHAR(2048)"/>
+			<column name="questProcessHeader" type="VARCHAR(2048)"/>
+			<column name="questItemId" type="VARCHAR(2048)"/>
 			<column name="QPHeader" type="BIGINT"/>
+<column name="quesProcessHeader" type="BIGINT"/>
 
         </createTable>
     </changeSet>

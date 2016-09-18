@@ -31,10 +31,11 @@
             </column>
 	
 			<column name="firstName" type="VARCHAR(2048)"/>
+<column name="salesforceId" type="VARCHAR(2048)"/>
 			<column name="lastName" type="VARCHAR(2048)"/>
 			<column name="Email" type="VARCHAR(2048)"/>
 			<column name="Phone" type="VARCHAR(2048)"/>
-			<column name="contact" type="BIGINT"/>
+			<column name="account" type="BIGINT"/>
 
         </createTable>
     </changeSet>
