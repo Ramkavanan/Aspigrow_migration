@@ -52,6 +52,9 @@
             <column defaultValueBoolean="0" name="emailVerified" type="BIT(1)">
                 <constraints nullable="false"/>
             </column>
+
+	<column name="contact" type="BIGINT"/>
+
         </createTable>
     </changeSet>
     <changeSet author="Ramachandran.K (Generated)" id="100405130013-3">
